@@ -1,0 +1,19 @@
+.recipe{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgb(90, 65, 65);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: rgb(247, 235, 235);
+    align-items: center;
+    min-width: 40%;
+    
+}
+
+.image {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
