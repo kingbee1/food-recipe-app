@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react'; 
+import React, {  useEffect, useState, useCallback } from 'react'; 
 import Recipe from './Recipe';
 import './App.css';
 
@@ -11,18 +11,27 @@ const [search, setSearch] = useState('');
 const [query, setQuery] = useState('chicken');
 
 
+const getRecipes = useCallback(async () => {
+  const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
+  const data = await response.json();
+  setRecipes(data.hits);
+}, [query]);
+
+
+
+// async () => {
+//   const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
+//   const data = await response.json();
+//   setRecipes(data.hits);
+
+// }
+
   //const [counter, setCounter] = useState(0);
   useEffect (() => {
-  getRecipes();  
-  }, [query, getRecipes]);
+    getRecipes();  
+  }, [getRecipes]);
 //added an empty array ,[] so the useeffect only renders once not everytime the page renders.
 
-  const getRecipes = async () => {
-    const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
-    const data = await response.json();
-    setRecipes(data.hits);
-  
-  }
 
   const updateSearch = e =>{
     setSearch(e.target.value);
