@@ -14,7 +14,7 @@ const [query, setQuery] = useState('chicken');
   //const [counter, setCounter] = useState(0);
   useEffect (() => {
   getRecipes();  
-  }, [query]);
+  }, [query, getRecipes]);
 //added an empty array ,[] so the useeffect only renders once not everytime the page renders.
 
   const getRecipes = async () => {
